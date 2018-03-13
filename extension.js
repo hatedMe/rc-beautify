@@ -19,11 +19,14 @@ function activate(context) {
 
         const a = vscode.window.activeTextEditor;
         if (a && a.document) {
-            // const r = allOf(a.document);
-            // return format(a.document, r, a.options)
-            //     .then(txt => a.edit(editor => editor.replace(r, txt)))
-            //     .catch(report);
-            console.log( formatter.format() )
+
+            let text = a.document.getText(new vscode.Range(0, 0, Number.MAX_VALUE, Number.MAX_VALUE));
+
+            console.log( text )
+            let range = formatter.allOf(a.document);
+            let outputText = formatter.format( text );
+
+            a.edit(editor => editor.replace(range, outputText));
         }
 
 

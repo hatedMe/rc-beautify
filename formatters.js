@@ -6,12 +6,20 @@ format
 
 
 const vscode  = require('vscode');
+const fs = require('fs');
+const esformatter = require('esformatter');
+esformatter.register(require('esformatter-jsx'));
+
+
+//const str = fs.readFileSync('someKewlFile.js').toString();
+//const output = esformatter.format(str);
 
 
 
 
-function format(doc, range, defaults) {
-    return 5
+
+function format( str ) {
+    return esformatter.format(str.toString());
 }
 
 
