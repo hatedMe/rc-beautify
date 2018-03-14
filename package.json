@@ -1,12 +1,12 @@
 {
     "name": "rc-beautify",
     "displayName": "rc-beautify",
-    "description": "Beautify React Javascript TypeScript",
-    "version": "1.1.0",
+    "description": "Beautify React JavaScript TypeScript",
+    "version": "1.2.0",
     "publisher": "Atom",
     "icon": "res/logo.png",
     "engines": {
-        "vscode": "^1.21.0"
+        "vscode": "^0.10.5"
     },
     "keywords": [
         "beautify",
