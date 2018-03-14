@@ -21,7 +21,7 @@
 > This extension wraps prettydiff to format your javascript, JSX, typescript, TSX file.
 
 ## How To Use?
-- shortcuts: Alt+B
+- shortcuts: Ctrl+B
 - Press F1, enter Beautify React Javascript TypeScript
 
 ## Setting 
