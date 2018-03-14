@@ -4,26 +4,46 @@ format
 
 const vscode = require('vscode');
 const fs = require('fs');
-const esformatter = require('esformatter');
-esformatter.register(require('esformatter-jsx'));
+const prettydiff = require('prettydiff');
 
-var opt = {
-    "jsx": {
-        "htmlOptions": { // same as the ones passed to js-beautifier.html
-            //"brace_style": "collapse",
-            "indent_char": " ",
-            "indent_size": 4,
-            // max_preserve_newlines: 2, "max_preserve_newlines": 1, "preserve_newlines":
-            // true wrap_line_length: 250
-        }
+const languageOptions = {
+    javascript: {
+        lang: "javascript"
+    },
+    javascriptreact: {
+        lang: "jsx",
+        jsx: true
+    },
+    typescript: {
+        lang: "typescript",
+        typescript: true
+    },
+    typescriptreact: {
+        lang: "jsx",
+        typescript: true,
+        jsx: true
     }
+};
+
+function readConfig() {
+    let config = vscode.workspace.getConfiguration('rc.beautify');
+    if (typeof config === 'undefined') {
+        config = {};
+    }
+    return config;
 }
 
-// const str = fs.readFileSync('someKewlFile.js').toString(); const output =
-// esformatter.format(str);
+function prettydiffFactory(txt, langId) {
+    let output = Object.assign({}, readConfig() , {
+        source: txt,
+        mode: 'beautify'
+    }, languageOptions[langId]);
+    return prettydiff.api(output)[0];
+}
 
-function format(str) {
-    return esformatter.format(str.toString(), opt);
+
+function format(txt, langId) {
+    return prettydiffFactory(txt, langId);
 }
 
 /*

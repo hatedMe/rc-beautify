@@ -1,11 +1,25 @@
 {
   "name": "rc-beautify",
   "displayName": "rc-beautify",
-  "description": "rc-beautify",
-  "version": "0.0.1",
+  "description": "Beautify React Javascript TypeScript",
+  "version": "1.0.1",
   "publisher": "rc-beautify",
+  "icon": "res/logo.png",
   "engines": {
     "vscode": "^1.21.0"
+  },
+  "keywords": [
+    "beautify",
+    "react",
+    "javascript",
+    "TypeScript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hatedMe/rc-beautify"
+  },
+  "bugs": {
+    "url": "https://github.com/hatedMe/rc-beautify/issues"
   },
   "categories": [
     "Other"
@@ -15,12 +29,31 @@
   ],
   "main": "./extension",
   "contributes": {
-    "commands": [
-      {
-        "command": "extension.sayHello",
-        "title": "Hello World"
+    "commands": [{
+      "command": "extension.sayHello",
+      "title": "Beautify React Javascript TypeScript"
+    }],
+    "keybindings": [{
+      "command": "extension.sayHello",
+      "key": "ctrl+b",
+      "mac": "cmd+b"
+    }],
+    "configuration": {
+      "type": "object",
+      "title": "rc-beautify config",
+      "properties": {
+        "rc-beautify": {
+          "type": "object",
+          "default": {
+            "insize": 4,
+            "inchar": " ",
+            "bracepadding": false,
+            "wrap": 80
+          },
+          "description": "Beautify React JavaScript TypeScript Basic configuration =。="
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
@@ -34,7 +67,6 @@
     "@types/mocha": "^2.2.42"
   },
   "dependencies": {
-    "esformatter": "^0.10.0",
-    "esformatter-jsx": "^8.0.1"
+    "prettydiff": "^99.0.1"
   }
 }
