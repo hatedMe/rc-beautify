@@ -24,9 +24,12 @@
 - shortcuts: Ctrl+B
 - Press F1, enter Beautify React Javascript TypeScript
 
-## 
+## Manifest
+
 > It works for my main use case and I hope it works for you too.
+
 So this plugin will turn this:
+
 ```javascript
 import React, {
     Component
