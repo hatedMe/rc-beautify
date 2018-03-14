@@ -24,8 +24,58 @@
 - shortcuts: Ctrl+B
 - Press F1, enter Beautify React Javascript TypeScript
 
+## 
+> It works for my main use case and I hope it works for you too.
+So this plugin will turn this:
+```javascript
+import React, {
+    Component
+} from 'react';
+import PropTypes from 'prop-types';
+import {
+    connect
+} from 'react-redux';
+
+class App extends Component {
+render() {
+return (
+<div>
+<h1>hello word</h1>
+</div>
+)
+}
+}
+
+
+export default connect()(App)
+```
+into:
+```javascript
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <h1>hello word</h1>
+            </div>
+        )
+    }
+}
+
+function name() {
+    console.log(456);
+}
+
+export default connect()(App)
+```
+<p><img src="https://github.com/hatedMe/rc-beautify/raw/master/res/test.rc-beautify.gif" /></p>
+
 ## Setting 
 changge a global settings:
+> This plugin basically helps you to configure the settings, but you want to change more interesting settings, and the author will slowly update it (though I'm not lazy, hehe =。= )
 ```javascript
 {
     "insize": 4,
